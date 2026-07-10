@@ -4,7 +4,6 @@ type Props = {
   jobs: Job[];
 };
 
-
 function Dashboard({ jobs }: Props) {
 
   const total = jobs.length;
@@ -30,22 +29,81 @@ function Dashboard({ jobs }: Props) {
   ).length;
 
 
+  const respostas = entrevistas + testes + ofertas;
+
+  const taxaRetorno = total > 0
+    ? Math.round((respostas / total) * 100)
+    : 0;
+
+
+  const metrics = [
+    {
+      title: "Total de vagas",
+      value: total,
+      icon: "📋"
+    },
+    {
+      title: "Enviadas",
+      value: enviados,
+      icon: "📨"
+    },
+    {
+      title: "Entrevistas",
+      value: entrevistas,
+      icon: "📞"
+    },
+    {
+      title: "Testes técnicos",
+      value: testes,
+      icon: "💻"
+    },
+    {
+      title: "Ofertas",
+      value: ofertas,
+      icon: "🤝"
+    },
+    {
+      title: "Rejeitadas",
+      value: rejeitados,
+      icon: "❌"
+    }
+  ];
+
+
   return (
-    <section>
+    <section className="dashboard">
 
-      <h2>Resumo</h2>
+      <div className="dashboard-header">
+        <h2>Resumo das candidaturas</h2>
 
-      <p>Total de vagas: {total}</p>
+        <div className="response-rate">
+          📈 Taxa de retorno:
+          <strong>{taxaRetorno}%</strong>
+        </div>
+      </div>
 
-      <p>📨 Enviadas: {enviados}</p>
 
-      <p>📞 Entrevistas: {entrevistas}</p>
+      <div className="metrics-grid">
 
-      <p>💻 Testes técnicos: {testes}</p>
+        {metrics.map((metric) => (
+          <article
+            className="metric-card"
+            key={metric.title}
+          >
+            <span>
+              {metric.icon}
+            </span>
 
-      <p>🤝 Ofertas: {ofertas}</p>
+            <div>
+              <h3>{metric.title}</h3>
+              <strong>{metric.value}</strong>
+            </div>
 
-      <p>❌ Rejeitadas: {rejeitados}</p>
+          </article>
+        ))}
+
+      </div>
+
 
     </section>
   );
