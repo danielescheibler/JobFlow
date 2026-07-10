@@ -1,0 +1,176 @@
+@import "./theme.css";
+@import "./layout.css";
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+*,
+*::before,
+*::after {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
+
+
+body {
+
+  font-family: Inter, "Segoe UI", sans-serif;
+
+  background: var(--background);
+
+  color: var(--text);
+
+  overflow-x: hidden;
+
+  min-height: 100vh;
+
+}
+
+
+
+/* ==========================================
+   ROOT
+========================================== */
+
+#root {
+
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 40px 32px;
+
+}
+
+
+
+/* ==========================================
+   ELEMENTOS GERAIS
+========================================== */
+
+h1,
+h2,
+h3 {
+
+  color: var(--text);
+
+}
+
+
+
+p {
+
+  line-height: 1.5;
+
+  color: var(--text-light);
+
+}
+
+
+
+button,
+input,
+select,
+textarea {
+
+  font-family: inherit;
+
+}
+
+
+
+button {
+
+  cursor: pointer;
+
+}
+
+
+
+img {
+
+  max-width: 100%;
+
+  display: block;
+
+}
+
+
+
+/* ==========================================
+   SEÇÕES
+========================================== */
+
+section {
+
+  width: 100%;
+
+}
+
+
+
+/* ==========================================
+   BOARD VERTICAL
+========================================== */
+
+.board {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+  width: 100%;
+
+}
+
+
+
+.column {
+
+  width: 100%;
+
+  background: #eef3ff;
+
+  border-radius: var(--radius);
+
+  padding: 16px;
+
+}
+
+
+
+/* ==========================================
+   RESPONSIVO
+========================================== */
+
+@media (max-width: 768px) {
+
+
+  #root {
+
+    padding: 24px 16px;
+
+  }
+
+
+}

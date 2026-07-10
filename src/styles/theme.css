@@ -1,0 +1,538 @@
+/* ==========================================
+   CORES E VARIÁVEIS
+========================================== */
+
+:root {
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+
+  --background: #f5f7fb;
+  --surface: #ffffff;
+
+  --text: #1f2937;
+  --text-light: #6b7280;
+
+  --border: #e5e7eb;
+
+  --radius: 12px;
+
+  --shadow:
+    0 6px 16px rgba(15, 23, 42, .06);
+
+}
+
+
+
+/* ==========================================
+   LAYOUT
+========================================== */
+
+.section {
+
+  background: var(--surface);
+
+  border-radius: var(--radius);
+
+  padding: 24px;
+
+  box-shadow: var(--shadow);
+
+  margin-bottom: 24px;
+
+}
+
+
+.grid {
+
+  display: grid;
+
+  gap: 20px;
+
+}
+
+
+.flex-between {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+}
+
+
+
+/* ==========================================
+   FORMULÁRIO
+========================================== */
+
+.form {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 16px;
+
+}
+
+
+.full-width {
+
+  grid-column: 1 / -1;
+
+}
+
+
+.input {
+
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  background: white;
+
+  font-size: .95rem;
+
+  transition: .2s;
+
+}
+
+
+.input:focus {
+
+  outline: none;
+
+  border-color: var(--primary);
+
+}
+
+
+
+/* ==========================================
+   FILTROS
+========================================== */
+
+.filters {
+
+  display: grid;
+
+  grid-template-columns: 1fr 220px;
+
+  gap: 16px;
+
+}
+
+
+
+/* ==========================================
+   BOTÕES
+========================================== */
+
+.button {
+
+  border: none;
+
+  border-radius: 8px;
+
+  padding: 12px 18px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: .2s;
+
+}
+
+
+.button-primary {
+
+  background: var(--primary);
+
+  color: white;
+
+}
+
+
+.button-primary:hover {
+
+  background: var(--primary-hover);
+
+}
+
+
+.button-secondary {
+
+  background: #f3f4f6;
+
+}
+
+
+.button-secondary:hover {
+
+  background: #e5e7eb;
+
+}
+
+
+.button-danger {
+
+  background: var(--danger);
+
+  color: white;
+
+}
+
+
+.button-danger:hover {
+
+  background: var(--danger-hover);
+
+}
+
+
+
+/* ==========================================
+   BOARD (KANBAN)
+========================================== */
+
+.board {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 28px;
+
+}
+
+
+.column {
+
+  width: 100%;
+
+  background: #eef3ff;
+
+  border-radius: var(--radius);
+
+  padding: 20px;
+
+}
+
+
+.column > div:not(.column-header) {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+
+}
+
+
+.column {
+
+  width: 100%;
+
+  background: #eef3ff;
+
+  border-radius: var(--radius);
+
+  padding: 16px;
+
+}
+
+
+.column-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+
+}
+
+
+.column-count {
+
+  background: white;
+
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  font-size: .85rem;
+
+  font-weight: 600;
+
+}
+
+.cards-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.card {
+
+  background: white;
+
+  border-radius: 10px;
+
+  padding: 16px;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+
+  margin-bottom: 14px;
+
+}
+
+
+.card-title {
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  margin-bottom: 6px;
+
+}
+
+
+.card-company {
+
+  color: var(--text-light);
+
+  margin-bottom: 12px;
+
+}
+
+
+.card-status {
+
+  margin-bottom: 12px;
+
+}
+
+
+.card-info {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  margin-bottom: 12px;
+
+}
+
+
+.card-dates {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 16px;
+
+}
+
+
+.card-dates small {
+
+  color: var(--text-light);
+
+}
+
+
+.card-actions {
+
+  display: flex;
+
+  gap: 10px;
+
+}
+
+
+.card-actions .button {
+
+  flex: 1;
+
+}
+
+
+
+/* ==========================================
+   BADGES
+========================================== */
+
+.badge {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-size: .85rem;
+
+  font-weight: 600;
+
+}
+
+
+.sent {
+
+  background: #dbeafe;
+
+  color: #1d4ed8;
+
+}
+
+
+.interview {
+
+  background: #fef3c7;
+
+  color: #92400e;
+
+}
+
+
+.test {
+
+  background: #ede9fe;
+
+  color: #6d28d9;
+
+}
+
+
+.offer {
+
+  background: #dcfce7;
+
+  color: #166534;
+
+}
+
+
+.rejected {
+
+  background: #fee2e2;
+
+  color: #991b1b;
+
+}
+
+
+
+/* ==========================================
+   UTILITÁRIOS
+========================================== */
+
+.title {
+
+  font-size: 2rem;
+
+  font-weight: 700;
+
+}
+
+
+.subtitle {
+
+  color: var(--text-light);
+
+  margin-bottom: 20px;
+
+}
+
+
+.empty {
+
+  text-align: center;
+
+  color: var(--text-light);
+
+  padding: 24px 0;
+
+}
+
+
+
+/* ==========================================
+   RESPONSIVO
+========================================== */
+
+@media (max-width: 768px) {
+
+  .form {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .filters {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .card-dates {
+
+    flex-direction: column;
+
+  }
+
+}
+
+@media (max-width: 1000px) {
+
+  .cards-grid {
+
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .cards-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
