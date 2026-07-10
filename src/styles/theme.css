@@ -26,9 +26,8 @@
 }
 
 
-
 /* ==========================================
-   LAYOUT
+   LAYOUT BASE
 ========================================== */
 
 .section {
@@ -66,7 +65,6 @@
 }
 
 
-
 /* ==========================================
    FORMULÁRIO
 ========================================== */
@@ -99,7 +97,9 @@
 
   border-radius: 8px;
 
-  background: white;
+  background: var(--surface);
+
+  color: var(--text);
 
   font-size: .95rem;
 
@@ -117,7 +117,6 @@
 }
 
 
-
 /* ==========================================
    FILTROS
 ========================================== */
@@ -131,7 +130,6 @@
   gap: 16px;
 
 }
-
 
 
 /* ==========================================
@@ -201,9 +199,8 @@
 }
 
 
-
 /* ==========================================
-   BOARD (KANBAN)
+   BOARD / KANBAN
 ========================================== */
 
 .board {
@@ -221,35 +218,13 @@
 
   width: 100%;
 
-  background: #eef3ff;
+  background: var(--background);
+
+  border: 1px solid var(--border);
 
   border-radius: var(--radius);
 
   padding: 20px;
-
-}
-
-
-.column > div:not(.column-header) {
-
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 18px;
-
-}
-
-
-.column {
-
-  width: 100%;
-
-  background: #eef3ff;
-
-  border-radius: var(--radius);
-
-  padding: 16px;
 
 }
 
@@ -267,9 +242,23 @@
 }
 
 
+.column > div:not(.column-header) {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(180px, 260px));
+
+  gap: 18px;
+
+  justify-content: start;
+
+}
+
 .column-count {
 
-  background: white;
+  background: var(--surface);
+
+  border: 1px solid var(--border);
 
   padding: 4px 10px;
 
@@ -281,31 +270,44 @@
 
 }
 
+
+/* ==========================================
+   CARDS DE VAGAS
+========================================== */
+
 .cards-grid {
 
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 320px));
 
   gap: 18px;
 
+  justify-content: start;
+
 }
 
-/* ==========================================
-   CARD
-========================================== */
 
 .card {
 
-  background: white;
+  background: var(--surface);
 
-  border-radius: 10px;
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
 
   padding: 16px;
 
-  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  box-shadow: var(--shadow);
 
-  margin-bottom: 14px;
+  transition: .2s;
+
+}
+
+
+.card:hover {
+
+  transform: translateY(-3px);
 
 }
 
@@ -386,7 +388,6 @@
 }
 
 
-
 /* ==========================================
    BADGES
 ========================================== */
@@ -397,9 +398,11 @@
 
   align-items: center;
 
+  justify-content: center;
+
   gap: 6px;
 
-  padding: 6px 12px;
+  padding: 7px 14px;
 
   border-radius: 999px;
 
@@ -407,8 +410,17 @@
 
   font-weight: 600;
 
+  width: fit-content;
+
 }
 
+.default {
+
+  background: #f3f4f6;
+
+  color: var(--text);
+
+}
 
 .sent {
 
@@ -455,6 +467,97 @@
 }
 
 
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+.dashboard {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+
+}
+
+
+.dashboard-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+}
+
+
+.response-rate {
+
+  display: flex;
+
+  gap: 8px;
+
+  align-items: center;
+
+}
+
+
+.metrics-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+  gap: 16px;
+
+}
+
+
+.metric-card {
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  padding: 20px;
+
+  display: flex;
+
+  gap: 16px;
+
+  align-items: center;
+
+  box-shadow: var(--shadow);
+
+}
+
+
+.metric-card span {
+
+  font-size: 2rem;
+
+}
+
+
+.metric-card h3 {
+
+  font-size: .9rem;
+
+  color: var(--text-light);
+
+}
+
+
+.metric-card strong {
+
+  font-size: 2rem;
+
+}
+
 
 /* ==========================================
    UTILITÁRIOS
@@ -477,6 +580,81 @@
 
 }
 
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.empty-state {
+
+  background: var(--surface);
+
+  border: 1px dashed var(--border);
+
+  border-radius: var(--radius);
+
+  padding: 48px 24px;
+
+  text-align: center;
+
+  color: var(--text-light);
+
+}
+
+
+.empty-icon {
+
+  display: block;
+
+  font-size: 3rem;
+
+  margin-bottom: 16px;
+
+}
+
+
+.empty-state h3 {
+
+  color: var(--text);
+
+  margin-bottom: 8px;
+
+}
+
+
+.empty-state p {
+
+  max-width: 420px;
+
+  margin: 0 auto;
+
+}
+
+/* ==========================================
+   EMPTY COLUMN
+========================================== */
+
+.column-empty {
+
+  padding: 24px 12px;
+
+  text-align: center;
+
+  color: var(--text-light);
+
+  opacity: .8;
+
+}
+
+
+.column-empty span {
+
+  display: block;
+
+  font-size: 1.5rem;
+
+  margin-bottom: 8px;
+
+}
 
 .empty {
 
@@ -489,10 +667,20 @@
 }
 
 
-
 /* ==========================================
    RESPONSIVO
 ========================================== */
+
+@media (max-width: 1000px) {
+
+  .cards-grid {
+
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+}
+
 
 @media (max-width: 768px) {
 
@@ -502,11 +690,13 @@
 
   }
 
+
   .filters {
 
     grid-template-columns: 1fr;
 
   }
+
 
   .card-dates {
 
@@ -514,13 +704,14 @@
 
   }
 
-}
 
-@media (max-width: 1000px) {
+  .dashboard-header {
 
-  .cards-grid {
+    flex-direction: column;
 
-    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-start;
+
+    gap: 12px;
 
   }
 

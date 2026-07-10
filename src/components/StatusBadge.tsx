@@ -2,34 +2,65 @@ type Props = {
   status: string;
 };
 
+
 function StatusBadge({ status }: Props) {
 
-  const statusClass: Record<string, string> = {
-    "Enviado": "sent",
-    "Entrevista": "interview",
-    "Teste técnico": "test",
-    "Oferta": "offer",
-    "Rejeitado": "rejected",
+  const statusConfig: Record<
+    string,
+    {
+      className: string;
+      icon: string;
+    }
+  > = {
+
+    "Enviado": {
+      className: "sent",
+      icon: "📨",
+    },
+
+    "Entrevista": {
+      className: "interview",
+      icon: "📞",
+    },
+
+    "Teste técnico": {
+      className: "test",
+      icon: "💻",
+    },
+
+    "Oferta": {
+      className: "offer",
+      icon: "🤝",
+    },
+
+    "Rejeitado": {
+      className: "rejected",
+      icon: "❌",
+    },
+
   };
 
-  const icons: Record<string, string> = {
-    "Enviado": "📨",
-    "Entrevista": "📞",
-    "Teste técnico": "💻",
-    "Oferta": "🤝",
-    "Rejeitado": "❌",
-  };
+
+  const current =
+    statusConfig[status] ?? {
+      className: "default",
+      icon: "📌",
+    };
+
 
   return (
 
     <span
-      className={`badge ${statusClass[status]}`}
+      className={`badge ${current.className}`}
     >
-      {icons[status]} {status}
+
+      {current.icon} {status}
+
     </span>
 
   );
 
 }
+
 
 export default StatusBadge;

@@ -1,4 +1,5 @@
 import type { Job } from "../types/jobs";
+import RecentJobs from "./RecentJobs";
 
 type Props = {
   jobs: Job[];
@@ -103,7 +104,7 @@ function Dashboard({ jobs }: Props) {
         ))}
 
       </div>
-
+        <RecentJobs jobs={jobs} />
 
     </section>
   );

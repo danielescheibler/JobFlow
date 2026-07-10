@@ -84,3 +84,42 @@ main{
 .metric-card strong {
   font-size: 2rem;
 }
+
+.recent-jobs {
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+
+
+.recent-jobs ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.recent-jobs li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.recent-jobs li div {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.recent-jobs span {
+  color: var(--text-muted);
+}
+
+
+.job-status {
+  padding: .35rem .8rem;
+  border-radius: 999px;
+  font-size: .85rem;
+}

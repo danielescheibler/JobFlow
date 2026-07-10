@@ -56,14 +56,21 @@ function JobBoard({
 
               </div>
 
-              {jobsByStatus.length === 0 ? (
+             {jobsByStatus.length === 0 ? (
 
-                <p className="empty">
-                  Nenhuma vaga
-                </p>
+  <div className="column-empty">
 
-              ) : (
+    <span>
+      📂
+    </span>
 
+    <p>
+      Nenhuma vaga
+    </p>
+
+  </div>
+
+) : (
                <div className="cards-grid">
 
   {jobsByStatus.map((job) => (

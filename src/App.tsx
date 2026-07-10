@@ -352,10 +352,6 @@ function App() {
 </header>
 <section className="section">
 
-  <h2 className="section-title">
-    Resumo
-  </h2>
-
   <Dashboard
     jobs={jobs}
   />
