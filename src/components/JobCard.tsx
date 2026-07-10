@@ -33,17 +33,25 @@ function JobCard({
 
       </div>
 
-      <div className="card-info">
+     <div className="card-info">
 
-        <p>
-          💼 {job.modality}
-        </p>
+  <p>
+    💼 {job.modality}
+  </p>
 
-        <p>
-          💰 R$ {job.salary}
-        </p>
+  {job.location && (
 
-      </div>
+    <p>
+      📍 {job.location}
+    </p>
+
+  )}
+
+  <p>
+    💰 R$ {job.salary}
+  </p>
+
+</div>
 
       <div className="card-dates">
 

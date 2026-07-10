@@ -42,10 +42,11 @@ function JobBoard({
           return (
 
             <div
-              className="column"
-              key={status}
-            >
-
+  className={`column ${status
+    .toLowerCase()
+    .replace(" ", "-")}`}
+  key={status}
+>
               <div className="column-header">
 
                 <h3>{status}</h3>

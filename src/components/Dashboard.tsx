@@ -1,113 +1,148 @@
 import type { Job } from "../types/jobs";
 import RecentJobs from "./RecentJobs";
+import ApplicationFunnel from "./ApplicationFunnel";
+import { getJobMetrics } from "../utils/jobMetrics";
+
 
 type Props = {
   jobs: Job[];
 };
 
+
 function Dashboard({ jobs }: Props) {
 
-  const total = jobs.length;
 
-  const enviados = jobs.filter(
-    (job) => job.status === "Enviado"
-  ).length;
+  const {
+    total,
+    enviados,
+    entrevistas,
+    testes,
+    ofertas,
+    rejeitados,
+    taxaRetorno,
+  } = getJobMetrics(jobs);
 
-  const entrevistas = jobs.filter(
-    (job) => job.status === "Entrevista"
-  ).length;
-
-  const testes = jobs.filter(
-    (job) => job.status === "Teste técnico"
-  ).length;
-
-  const ofertas = jobs.filter(
-    (job) => job.status === "Oferta"
-  ).length;
-
-  const rejeitados = jobs.filter(
-    (job) => job.status === "Rejeitado"
-  ).length;
-
-
-  const respostas = entrevistas + testes + ofertas;
-
-  const taxaRetorno = total > 0
-    ? Math.round((respostas / total) * 100)
-    : 0;
 
 
   const metrics = [
+
     {
       title: "Total de vagas",
       value: total,
-      icon: "📋"
+      icon: "📋",
     },
+
+    {
+  title: "Taxa de retorno",
+  value: `${taxaRetorno}%`,
+  icon: "📈",
+},
+
     {
       title: "Enviadas",
       value: enviados,
-      icon: "📨"
+      icon: "📨",
     },
+
+   
     {
       title: "Entrevistas",
       value: entrevistas,
-      icon: "📞"
+      icon: "📞",
     },
+
     {
       title: "Testes técnicos",
       value: testes,
-      icon: "💻"
+      icon: "💻",
     },
+
     {
       title: "Ofertas",
       value: ofertas,
-      icon: "🤝"
+      icon: "🤝",
     },
+
     {
       title: "Rejeitadas",
       value: rejeitados,
-      icon: "❌"
-    }
+      icon: "❌",
+    },
+
   ];
 
 
+
   return (
+
     <section className="dashboard">
 
-      <div className="dashboard-header">
-        <h2>Resumo das candidaturas</h2>
 
-        <div className="response-rate">
-          📈 Taxa de retorno:
-          <strong>{taxaRetorno}%</strong>
-        </div>
+      <div className="dashboard-header">
+
+        <h2>
+          Resumo das candidaturas
+        </h2>
+
+
+   
+
       </div>
+
 
 
       <div className="metrics-grid">
 
+
         {metrics.map((metric) => (
+
           <article
             className="metric-card"
             key={metric.title}
           >
+
             <span>
               {metric.icon}
             </span>
 
+
             <div>
-              <h3>{metric.title}</h3>
-              <strong>{metric.value}</strong>
+
+              <h3>
+                {metric.title}
+              </h3>
+
+
+              <strong>
+                {metric.value}
+              </strong>
+
             </div>
 
+
           </article>
+
         ))}
 
+
       </div>
-        <RecentJobs jobs={jobs} />
+
+
+
+      <ApplicationFunnel
+        jobs={jobs}
+      />
+
+
+      <RecentJobs
+        jobs={jobs}
+      />
+
 
     </section>
+
   );
+
 }
 
 

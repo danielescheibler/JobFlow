@@ -3,10 +3,9 @@ export type Job = {
   company: string;
   position: string;
   salary: string;
-  modality: string;
+  modality: string; // "Remoto", "Híbrido", ou "Presencial"
+  location?: string; // Adicionamos essa propriedade opcional
   status: string;
   appliedAt: string;
   updatedAt: string;
 };
-
-export type JobForm = Omit<Job, "id" | "appliedAt" | "updatedAt">;

@@ -98,17 +98,36 @@ function JobForm({
       </select>
 
 
+{job.modality !== "Remoto" && (
 
+  <input
+    className="input"
+    type="text"
+    placeholder="Cidade / Estado"
+    value={job.location}
+    onChange={(e) =>
+      setJob({
+        ...job,
+        location: e.target.value,
+      })
+    }
+  />
+
+)}
 
       <select
         className="input full-width"
         value={job.status}
-        onChange={(e) =>
-          setJob({
-            ...job,
-            status: e.target.value,
-          })
-        }
+       onChange={(e) =>
+  setJob({
+    ...job,
+    modality: e.target.value,
+    location:
+      e.target.value === "Remoto"
+        ? ""
+        : job.location,
+  })
+}
       >
 
         <option value="Enviado">
