@@ -1,75 +1,60 @@
-# React + TypeScript + Vite
+# JobFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web para gerenciamento de candidaturas de emprego.
 
-Currently, two official plugins are available:
+## Sobre o projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Durante uma busca por oportunidades, é comum acompanhar diversas vagas em diferentes plataformas e acabar perdendo informações importantes como empresa, cargo, etapa do processo seletivo e próximos passos.
 
-## React Compiler
+O JobFlow foi criado para centralizar essas informações em um único painel, permitindo organizar e acompanhar candidaturas de forma simples e visual.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Problema
 
-## Expanding the ESLint configuration
+Candidatos que participam de vários processos seletivos precisam controlar:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- vagas enviadas;
+- empresas contatadas;
+- etapas do processo;
+- status das candidaturas;
+- informações importantes da oportunidade.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Solução
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Uma aplicação que permite cadastrar, visualizar e atualizar oportunidades de emprego, tornando o acompanhamento dos processos seletivos mais organizado.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Funcionalidades
 
-```
+- ✅ Cadastro de vagas
+- ✅ Visualização de candidaturas
+- ✅ Atualização de informações
+- ✅ Controle de status do processo seletivo
+- ✅ Organização por componentes reutilizáveis
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tecnologias utilizadas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- React
+- TypeScript
+- Vite
+- CSS
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Conceitos aplicados
 
-```
+- Componentização em React
+- Gerenciamento de estado com Hooks
+- Tipagem com TypeScript
+- Organização de componentes
+- Manipulação de formulários
+- Interface responsiva
+
+## Próximas melhorias
+
+- 🚧 Dashboard com métricas
+- 🚧 Busca e filtros avançados
+- 🚧 Prioridade das vagas
+- 🚧 Exportação dos dados
+- 🚧 Drag and Drop
+- 🚧 Integração com API
+
+## Objetivo
+
+Projeto desenvolvido para aplicar conceitos de desenvolvimento Front-end e criar uma solução baseada em um problema real de organização de processos seletivos.
