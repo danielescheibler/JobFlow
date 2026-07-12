@@ -6,46 +6,123 @@ main {
   gap: 28px;
 }
 
+/* =========================
+   HERO HEADER
+========================= */
+
 .header {
+  position: relative;
+  overflow: hidden;
+
   display: flex;
+  justify-content: center;
+  text-align: center;
 
-  justify-content: space-between;
+  padding: 4rem 1rem 2.5rem;
 
-  align-items: center;
+  margin-bottom: 1rem;
 
-  
+  border-radius: 28px;
+}
 
-  padding: 28px 32px;
+.header::before,
+.header::after {
+  content: "";
 
-  background: var(--surface);
+  position: absolute;
 
-  border-radius: var(--radius);
+  width: 380px;
+  height: 380px;
 
-  box-shadow: var(--shadow);
+  border-radius: 50%;
 
-  margin-bottom: 24px;
+  z-index: 0;
+
+  opacity: 0.7;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 800px;
+  padding-top: 0.5rem;
 }
 
 .title {
   font-size: 2rem;
-
   font-weight: 800;
-  
-  letter-spacing: -0.5px;
 
-  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.brand-icon {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.hero-title {
+  font-size: 2.6rem;
+
+  line-height: 1.2;
+
+  margin-bottom: 1rem;
 }
 
 .subtitle {
-  color: var(--text-light);
+  font-size: 1rem;
 
-  margin: 6px 0 0;
+  line-height: 1.6;
 
-  font-size: 0.95rem;
+  max-width: 550px;
+
+  margin: 0 auto;
+
+  opacity: 0.75;
 }
 
-.section-title {
-  margin-bottom: 18px;
+/* =========================
+   PIPELINE HERO
+========================= */
+
+.pipeline-bg {
+  position: absolute;
+
+  top: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  opacity: 0.35;
+
+  font-size: 0.8rem;
+
+  color: var(--primary);
+}
+
+.pipeline-bg span {
+  padding: 8px 14px;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.55);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+}
+
+.pipeline-bg i {
+  width: 35px;
+  height: 2px;
+
+  background: var(--primary);
 }
 
 .dashboard {

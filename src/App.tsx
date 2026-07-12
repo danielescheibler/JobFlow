@@ -24,21 +24,29 @@ function App() {
 
   return (
     <main>
-     <header className="header">
+      <header className="header">
+        <div className="pipeline-bg">
+          <span>Enviado</span>
+          <i></i>
+          <span>Entrevista</span>
+          <i></i>
+          <span>Teste</span>
+          <i></i>
+          <span>Oferta</span>
+        </div>
 
-  <div>
+        <div className="hero-content">
+          <h1 className="title">
+            <span className="brand-icon">▸</span> JobFlow
+          </h1>
 
-    <h1 className="title">
-      JobFlow
-    </h1>
+          <h2 className="hero-title">Sua jornada profissional organizada</h2>
 
-    <p className="subtitle">
-      Organize suas candidaturas de forma simples.
-    </p>
-
-  </div>
-
-</header>
+          <p className="subtitle">
+            Organize candidaturas, acompanhe etapas e visualize seu progresso
+          </p>
+        </div>
+      </header>
 
       <section className="section">
         <Dashboard jobs={jobs} />
