@@ -75,13 +75,14 @@ O **JobFlow** foi criado para resolver esse problema centralizando todas essas i
 <h2 align="center">📸 Preview</h2>
 
 <p align="center">
+  <img src="./screenshots/hero.png" width="48%">
   <img src="./screenshots/dashboard.png" width="48%">
-  <img src="./screenshots/job-board.png" width="48%">
-</p>
+  </p>
 
 <p align="center">
   <img src="./screenshots/job-form.png" width="48%">
-  <img src="./screenshots/hero.png" width="48%">
+  <img src="./screenshots/job-board.png" width="48%">
+
 </p>
 
 ---
