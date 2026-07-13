@@ -72,9 +72,17 @@ O **JobFlow** foi criado para resolver esse problema centralizando todas essas i
 
 ---
 
-# 📸 Preview
+<h2 align="center">📸 Preview</h2>
 
-> Em breve será adicionada uma captura da aplicação.
+<p align="center">
+  <img src="./screenshots/dashboard.png" width="48%">
+  <img src="./screenshots/job-board.png" width="48%">
+</p>
+
+<p align="center">
+  <img src="./screenshots/job-form.png" width="48%">
+  <img src="./screenshots/hero.png" width="48%">
+</p>
 
 ---
 
