@@ -1,4 +1,4 @@
-import type { Job, JobForm } from "../types/jobs";
+import type { Job } from "../types/jobs";
 
 import api from "./api";
 
