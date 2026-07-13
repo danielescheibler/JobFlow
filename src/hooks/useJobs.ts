@@ -2,73 +2,75 @@ import { useEffect, useState } from "react";
 
 import type { Job, JobForm } from "../types/jobs";
 
-import { loadJobs, saveJobs } from "../utils/storage";
+import {
+  getJobs,
+  createJob,
+  updateJob,
+  deleteJobApi,
+} from "../services/jobService";
 
 export function useJobs() {
   const initialJob: JobForm = {
     company: "",
-
     position: "",
-
     salary: "",
-
     modality: "Remoto",
-
     location: "",
-
     status: "Enviado",
   };
 
   const [job, setJob] = useState<JobForm>(initialJob);
 
-  const [jobs, setJobs] = useState<Job[]>(loadJobs);
+  const [jobs, setJobs] = useState<Job[]>([]);
 
   const [editingId, setEditingId] = useState<string | null>(null);
 
-  useEffect(() => {
-    saveJobs(jobs);
-  }, [jobs]);
+  async function fetchJobs() {
+    try {
+      const data = await getJobs();
+      setJobs(data);
+    } catch (error) {
+      console.error("Erro ao carregar vagas:", error);
+    }
+  }
 
-  function handleSubmit() {
+  useEffect(() => {
+    fetchJobs();
+  }, []);
+
+  async function handleSubmit() {
     if (!job.company || !job.position) {
       alert("Preencha empresa e cargo.");
-
       return;
     }
 
     const now = new Date().toISOString();
 
-    if (editingId) {
-      setJobs((prev) =>
-        prev.map((item) =>
-          item.id === editingId
-            ? {
-                ...item,
+    try {
+      if (editingId) {
+        await updateJob(editingId, {
+          ...job,
+          updatedAt: now,
+        });
 
-                ...job,
+        setEditingId(null);
+      } else {
+        const newJob: Job = {
+          id: crypto.randomUUID(),
+          ...job,
+          appliedAt: now,
+          updatedAt: now,
+        };
 
-                updatedAt: now,
-              }
-            : item
-        )
-      );
+        await createJob(newJob);
+      }
 
-      setEditingId(null);
-    } else {
-      const newJob: Job = {
-        id: crypto.randomUUID(),
-
-        ...job,
-
-        appliedAt: now,
-
-        updatedAt: now,
-      };
-
-      setJobs((prev) => [...prev, newJob]);
+      await fetchJobs();
+      setJob(initialJob);
+    } catch (error) {
+      console.error("Erro ao salvar vaga:", error);
+      alert("Erro ao salvar vaga.");
     }
-
-    setJob(initialJob);
   }
 
   function editJob(id: string) {
@@ -78,66 +80,51 @@ export function useJobs() {
 
     setJob({
       company: jobToEdit.company,
-
       position: jobToEdit.position,
-
       salary: jobToEdit.salary,
-
       modality: jobToEdit.modality,
-
       location: jobToEdit.location ?? "",
-
       status: jobToEdit.status,
     });
 
     setEditingId(id);
   }
 
-  function moveJob(
-    id: string,
+  async function moveJob(id: string, newStatus: string) {
+    try {
+      await updateJob(id, {
+        status: newStatus,
+      });
 
-    newStatus: string
-  ) {
-    setJobs((prev) =>
-      prev.map((job) =>
-        job.id === id
-          ? {
-              ...job,
-
-              status: newStatus,
-
-              updatedAt: new Date().toISOString(),
-            }
-          : job
-      )
-    );
+      await fetchJobs();
+    } catch (error) {
+      console.error("Erro ao mover vaga:", error);
+    }
   }
 
-  function deleteJob(id: string) {
+  async function deleteJob(id: string) {
     const confirmDelete = window.confirm(
       "Tem certeza que deseja excluir esta vaga?"
     );
 
     if (!confirmDelete) return;
 
-    setJobs((prev) => prev.filter((job) => job.id !== id));
+    try {
+      await deleteJobApi(id);
+      await fetchJobs();
+    } catch (error) {
+      console.error("Erro ao excluir vaga:", error);
+    }
   }
 
   return {
     jobs,
-
     job,
-
     setJob,
-
     editingId,
-
     handleSubmit,
-
     editJob,
-
     deleteJob,
-
     moveJob,
   };
 }

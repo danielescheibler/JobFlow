@@ -1,0 +1,16 @@
+{
+  "jobs": [
+    {
+      "id": "1",
+      "company": "Google",
+      "position": "Frontend Developer",
+      "salary": "R$ 8.000",
+      "modality": "Remoto",
+      "status": "Enviado",
+      "location": "São Paulo - SP",
+      "appliedAt": "2026-07-13T20:00:00.000Z",
+      "updatedAt": "2026-07-13T20:00:00.000Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
