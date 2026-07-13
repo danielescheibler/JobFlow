@@ -14,7 +14,7 @@ export async function createJob(job: Job) {
   return response.data;
 }
 
-export async function updateJob(id: string, job: Partial<JobForm>) {
+export async function updateJob(id: string, job: Partial<Job>) {
   const response = await api.patch(`/jobs/${id}`, job);
 
   return response.data;

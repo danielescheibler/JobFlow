@@ -271,7 +271,7 @@ Além disso, demonstra conhecimentos em:
 
 ### Daniele Scheibler
 
-Product Designer | Front-end Developer
+UX/UI Designer | Front-end Developer
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/danielescheibler/)
 
